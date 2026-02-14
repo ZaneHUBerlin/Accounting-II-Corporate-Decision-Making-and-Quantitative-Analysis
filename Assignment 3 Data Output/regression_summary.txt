@@ -1,0 +1,145 @@
+============================================================
+Assignment 3 Regression Results (winsorized pb/roa, 2022–2024)
+============================================================
+
+Model 1: pb_w ~ common_law + year FE
+
+
+Call:
+lm(formula = pb_w ~ common_law + factor(fyear), data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.2826 -0.9369 -0.2053 -0.0338 13.3863 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        1.20148    0.02347  51.202  < 2e-16 ***
+common_law        -1.12366    0.02714 -41.406  < 2e-16 ***
+factor(fyear)2023  0.08124    0.03083   2.635  0.00841 ** 
+factor(fyear)2024 -0.03829    0.03091  -1.239  0.21547    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.905 on 22867 degrees of freedom
+Multiple R-squared:  0.07029,	Adjusted R-squared:  0.07016 
+F-statistic: 576.2 on 3 and 22867 DF,  p-value: < 2.2e-16
+
+
+
+Model 2: pb_w ~ common_law + roa_w + year FE
+
+
+Call:
+lm(formula = pb_w ~ common_law + roa_w + factor(fyear), data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.3633 -0.9383 -0.3730  0.0761 13.6816 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        1.21346    0.02338  51.896   <2e-16 ***
+common_law        -1.24656    0.02843 -43.850   <2e-16 ***
+roa_w             -0.83705    0.06009 -13.930   <2e-16 ***
+factor(fyear)2023  0.07803    0.03070   2.542    0.011 *  
+factor(fyear)2024 -0.04126    0.03078  -1.340    0.180    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.898 on 22866 degrees of freedom
+Multiple R-squared:  0.07811,	Adjusted R-squared:  0.07795 
+F-statistic: 484.3 on 4 and 22866 DF,  p-value: < 2.2e-16
+
+
+
+Model 3: pb_w ~ common_law + roa_w + year FE + industry FE (2-digit SIC)
+
+
+Call:
+lm(formula = pb_w ~ common_law + roa_w + factor(fyear) + factor(sic2), 
+    data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.2892 -0.7888 -0.3593  0.1888 13.8319 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        1.22323    0.18777   6.514 7.45e-11 ***
+common_law        -1.11170    0.03060 -36.326  < 2e-16 ***
+roa_w             -0.74274    0.06133 -12.110  < 2e-16 ***
+factor(fyear)2023  0.08183    0.02966   2.759 0.005803 ** 
+factor(fyear)2024 -0.03801    0.02974  -1.278 0.201293    
+factor(sic2)2     -0.27528    0.37785  -0.729 0.466278    
+factor(sic2)7     -0.21794    0.41750  -0.522 0.601669    
+factor(sic2)8      1.33258    0.54088   2.464 0.013758 *  
+factor(sic2)9     -0.41037    0.48154  -0.852 0.394111    
+factor(sic2)10    -0.33127    0.19199  -1.725 0.084464 .  
+factor(sic2)12    -0.28823    0.32546  -0.886 0.375842    
+factor(sic2)13    -0.32645    0.21318  -1.531 0.125697    
+factor(sic2)14    -0.40154    0.24171  -1.661 0.096672 .  
+factor(sic2)15    -0.42501    0.20921  -2.032 0.042215 *  
+factor(sic2)16    -0.49709    0.20989  -2.368 0.017878 *  
+factor(sic2)17    -0.60483    0.23108  -2.617 0.008865 ** 
+factor(sic2)20    -0.04638    0.19588  -0.237 0.812836    
+factor(sic2)21    -0.32908    0.49434  -0.666 0.505612    
+factor(sic2)22    -0.77403    0.23680  -3.269 0.001082 ** 
+factor(sic2)23    -0.63222    0.22206  -2.847 0.004416 ** 
+factor(sic2)24    -0.37215    0.23956  -1.553 0.120332    
+factor(sic2)25    -0.26921    0.24416  -1.103 0.270203    
+factor(sic2)26    -0.70928    0.22276  -3.184 0.001455 ** 
+factor(sic2)27    -0.32835    0.23394  -1.404 0.160462    
+factor(sic2)28     0.43901    0.19115   2.297 0.021645 *  
+factor(sic2)29     0.04719    0.26900   0.175 0.860751    
+factor(sic2)30    -0.42971    0.20870  -2.059 0.039509 *  
+factor(sic2)31     1.41451    0.41150   3.437 0.000588 ***
+factor(sic2)32    -0.48406    0.21160  -2.288 0.022167 *  
+factor(sic2)33    -0.47299    0.20097  -2.354 0.018602 *  
+factor(sic2)34    -0.37821    0.20643  -1.832 0.066937 .  
+factor(sic2)35    -0.04625    0.19219  -0.241 0.809833    
+factor(sic2)36     0.06195    0.19141   0.324 0.746227    
+factor(sic2)37    -0.46774    0.19814  -2.361 0.018249 *  
+factor(sic2)38     0.07092    0.19691   0.360 0.718746    
+factor(sic2)39    -0.40749    0.23375  -1.743 0.081306 .  
+factor(sic2)40    -0.39644    0.37369  -1.061 0.288758    
+factor(sic2)41    -0.50643    0.31300  -1.618 0.105671    
+factor(sic2)42    -0.77356    0.24488  -3.159 0.001586 ** 
+factor(sic2)44    -0.51625    0.23114  -2.234 0.025525 *  
+factor(sic2)45     0.55382    0.32794   1.689 0.091271 .  
+factor(sic2)47     0.24207    0.22246   1.088 0.276541    
+factor(sic2)48    -0.31507    0.21583  -1.460 0.144355    
+factor(sic2)49    -0.38102    0.20951  -1.819 0.068982 .  
+factor(sic2)50    -0.46694    0.19726  -2.367 0.017937 *  
+factor(sic2)51    -0.43827    0.20502  -2.138 0.032548 *  
+factor(sic2)52    -0.44444    0.37344  -1.190 0.234014    
+factor(sic2)53    -0.08037    0.25539  -0.315 0.753007    
+factor(sic2)54    -0.08206    0.24045  -0.341 0.732884    
+factor(sic2)55    -0.68323    0.26251  -2.603 0.009256 ** 
+factor(sic2)56    -0.02847    0.26258  -0.108 0.913644    
+factor(sic2)57    -0.43275    0.27969  -1.547 0.121810    
+factor(sic2)58     3.09082    0.21353  14.475  < 2e-16 ***
+factor(sic2)59     0.13998    0.20693   0.676 0.498758    
+factor(sic2)70    -0.01981    0.24868  -0.080 0.936517    
+factor(sic2)72    -0.23443    0.27335  -0.858 0.391103    
+factor(sic2)73     0.20865    0.18928   1.102 0.270326    
+factor(sic2)75     0.15934    0.35746   0.446 0.655773    
+factor(sic2)76     0.14879    0.63818   0.233 0.815647    
+factor(sic2)78     1.29357    0.24476   5.285 1.27e-07 ***
+factor(sic2)79     1.43379    0.23578   6.081 1.21e-09 ***
+factor(sic2)80    -0.11653    0.23232  -0.502 0.615954    
+factor(sic2)81     1.38458    0.60821   2.276 0.022827 *  
+factor(sic2)82     0.17292    0.23086   0.749 0.453849    
+factor(sic2)83    -0.64214    0.40478  -1.586 0.112663    
+factor(sic2)84    -0.09399    1.07356  -0.088 0.930237    
+factor(sic2)87    -0.09962    0.20235  -0.492 0.622498    
+factor(sic2)89     0.98201    0.60843   1.614 0.106544    
+factor(sic2)99    -0.34787    0.22463  -1.549 0.121477    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.831 on 22755 degrees of freedom
+  (47 observations deleted due to missingness)
+Multiple R-squared:  0.1452,	Adjusted R-squared:  0.1426 
+F-statistic: 56.84 on 68 and 22755 DF,  p-value: < 2.2e-16
+
